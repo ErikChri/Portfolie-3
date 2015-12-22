@@ -48,4 +48,6 @@ fourthview{
     font-weight:bold;
     color:white; 
 }
-.highlight:hover{color:yellow;}
+.highlight:hover{color:yellow;
+                cursor: pointer;
+}
