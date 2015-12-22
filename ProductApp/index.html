@@ -1,0 +1,156 @@
+﻿<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Testing Bootstrap</title>
+
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <script src="Scripts/modernizr-2.8.3.js"></script>
+    <link href="Content/site.css" rel="StyleSheet1" />
+    <link rel="stylesheet" type="text/css" href="Styles/StyleSheet1.css" />
+</head>
+<body>
+
+    <div id="EntireBody" class="container-fluid" data-bind="with:viewModelNavBar">
+
+        <header>
+            <h1>Stack Overflow Community (SOVA)</h1>
+            <div class="row row-centered">
+                <nav class="navbar navbar-default">
+                    <br />
+                    <div>
+                        <div class="container">
+                            <div class="row row-centered">
+                                <ul class="nav navbar-nav col-sm-8 col-centered" data-bind="foreach:currentView">
+                                    <li class="align center-block"><a href="#" data-bind="text:name, click:$parent.showCurrentView.bind($data,no)"> </a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+
+
+        <div id="firstview" data-bind="with: allPosts, visible:currentView()[0].view === true">
+            <h1>About</h1>
+            Stack Overflow is a question and answer(QA) site for proffessional and enthusiastic
+            programmers working together to build a library of detailed answers to, in principle
+            every question about programming. The main goal for the site is all about getting answers.
+            It is not a discussion forum and there is no chitchat.This site allows you to post a question and an answer,
+            and to make comments.
+        </div>
+
+        <div class="container">
+            <!--First view -->
+            <div id="firstview" data-bind="with: allPosts, visible:currentView()[1].view === true">
+                <h1 class="highlight"> Posts</h1>
+
+                <input type="button" data-bind="click: getTenPosts" value="Get Posts">
+                <input type="button" data-bind="click:loadPrevPosts" value="Previous Page">
+                <input type="button" data-bind="click:loadNextPosts" value="Next Page">
+                Showing page no. <span data-bind="text: pageNo"></span>
+                <br>
+
+                <ul class="row, list-unstyled" data-bind="foreach: elements">
+                    <li> <span class="col-sm-1 highlight" data-bind="click:showBody.bind($data,body)">Title: </span><span class="col-sm-7 highlight" data-bind="text: title, click:showBody.bind($data,body)"></span><span class="col-sm-1"> Viewcount:</span> <span class="col-sm-1" data-bind="text:viewCount"></span><span class="col-sm-1">Votes: </span><span class="col-sm-1" data-bind="text:votes"></span></li>
+                </ul>
+
+
+                Body of post:  <span data-bind="text:body1"></span>
+                <br />
+            </div>
+
+            <!--End of first view-->
+            <!-- Second view-->
+            <div id="secondview" data-bind="with: searchById, visible:currentView()[2].view === true">
+                <h1>Search A Post By It's ID</h1>
+                Type ID to search for: <input type="number" data-bind="value:searchID" required><br>
+                <input type="button" data-bind="click:loadPostByID" value="Search">
+                <div data-bind="foreach: postById">
+
+                    <span>Title: </span><span data-bind="text: title"></span> Viewcount: <span data-bind="text:viewCount"></span> Votes: <span data-bind="text:votes"></span><br />
+                    <span>Body: </span><span data-bind="text: body"></span> <br />
+                </div>
+
+
+                <br />You have searched for the following IDs in this session: (Click ID to re-search that ID)<br />
+                <ul data-bind="foreach: IDs">
+                    <li><span data-bind="text: ID, click:showPrevIDs.bind($data,ID)"></span></li>
+                </ul>
+                <br><br>
+            </div>
+
+            <!-- End of second view-->
+            <!-- Third view-->
+            <div id="thirdview" data-bind="with: newPost, visible:currentView()[3].view === true">
+                <h1>Create a New Post</h1>
+                Here you can post a new post. <br>
+                <form>
+                    Title: &nbsp<input type="text" data-bind="value:title"><br>
+                    Body: <br><textarea name="body" id="bodyText" data-bind="value:body" rows="3" cols="35"></textarea><br>
+                    <input type="button" data-bind="click:sendNewPost" value="Post">
+                </form>
+                <br />
+                <span id="postCompleted"> You have made the following posts in this session:   </span>
+                <ul data-bind="foreach: posts">
+                    <li>
+                        <span>Title: </span><span data-bind="text: title"></span>
+                        Body: <span data-bind="text:body"></span>
+                    </li>
+                </ul>
+            </div>
+
+            <!--End of third view-->
+            <!-- Fourth view-->
+
+            <div id="fourthview" data-bind="with: loadSearchString, visible:currentView()[4].view === true">
+                <div class="container">
+                    <h1>Search</h1>
+                    You can search this site using keywords
+                    <div class="row">
+                        <div class="col-sm-8">
+                            Type search word: <input type="text" data-bind="value:searchString">
+                            <input type="button" data-bind="click:searchPost" value="Search">
+                            <button type="button" data-bind="click:prevShownPosts">Previous page</button>
+                            <button type="button" data-bind="click:nextToShowPosts">Next page</button>
+                        </div>
+                        <div class="col-sm-4">
+                            You have searched for the following words in this session: (Click word to research that word)
+                            <ul data-bind="foreach: searchWords">
+                                <li><span data-bind="text: searchedWord, click:showSearchWords.bind($data,searchedWord)"></span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <br><br>
+                    Your search for the word <span data-bind="text:searchString"></span> gave the following results: <br />
+                    <span id="bodySearch"> Click title to see body of post</span>
+                    <ul class="row list-unstyled" data-bind="foreach: postsShown">
+                        <li> <span class="col-sm-1" data-bind="click:showBodyPost.bind($data,body)">Title: </span><span class="col-sm-7" data-bind="text: title, click:showBodyPost.bind($data,body)"></span> <span class="col-sm-1">Viewcount:</span> <span class="col-sm-1" data-bind="text:viewCount"></span><span class="col-sm-1"> Votes:</span> <span class="col-sm-1" data-bind="text:votes"></span></li>
+                    </ul>
+
+
+                    <br /><br />
+                    <div class="row">
+                        <div class="col-sm-12">
+                            Body of post:  <br /><span data-bind="text:body2"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End of fourth view-->
+        </div>
+    </div>
+    <!--<script src="Scripts/plugins.js"></script>-->
+    <script src="Scripts/jquery-2.1.4.min.js"></script>
+    <script src="Scripts/knockout-3.4.0.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/BasicFunctionality.js"></script>
+    <footer>SOVA @ 2015</footer>
+
+</body>
+</html>

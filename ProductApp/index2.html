@@ -1,0 +1,135 @@
+﻿
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==" crossorigin="anonymous">
+
+
+<!DOCTYPE html>
+<html>
+<head>
+
+
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Testing Bootstrap</title>
+
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <script src="Scripts/modernizr-2.8.3.js"></script>
+    <link href="Content/site.css" rel="StyleSheet1" />
+    <link rel="stylesheet" type="text/css" href="Styles/StyleSheet1.css" />
+
+
+    <script src="Scripts/BasicFunctionality.js"></script>
+    <script src="Scripts/knockout-3.4.0.js"></script>
+    <script src="Scripts/modernizr-2.8.3.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="Styles/StyleSheet1.css" />
+    
+    <title> Stack Overflow Web Service</title>
+    <style>
+        p {
+            display: block;
+        }
+
+        header {
+            background-color: black;
+            color: white;
+            text-align: center;
+        }
+
+        footer {
+            background-color: black;
+            color: white;
+            clear: both;
+            text-align: center;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    
+    
+
+
+    <div id="EntireBody" class="container" data-bind="navBarView">
+
+        <header>
+            <div class="row row-centered">
+                <nav class="navbar navbar-default navbar-fixed-top">
+                    <div class="col-sm-12"><h1>Stack Overflow Community (SOVA)</h1></div>
+                    <br />
+                    <div class="col-sm-12 col-centered" style="background-color:lavender;">
+                        <ul class="nav navbar-nav" data-bind="foreach:currentView">
+                            <li><a href="#" data-bind="text:name, click:showCurrentView.bind($data,view)"> </a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    </div>
+
+
+    <div class="row">
+        <div class="col-sm-12"></div>
+
+        <form action="action_page.php">
+            Search SOVA:
+            <input type="search" name="search">
+            <input type="submit">
+        </form>
+
+
+
+        <!-- -->
+        <input type="button" data-bind="click:showCurrentView" value="Show/hide">
+        <div id="view1" class="col-sm-6" style="background-color: green" data-bind=" visible:showhide">
+
+            <h1>Stack Overflow Community </h1>
+            <br />
+            <span data-bind="text:show">TestTestTest</span>
+            <br />
+            Stack Overflow  is a question and answer (QA) site for professional and enthusiast programmers,
+            working together to build a library of detailed answers to, in principle, every question about programming.
+            The main goal for the site is all about getting answers.
+
+            It is not a discussion forum and there is no chitchat. This site allows you to post a question and an answer; and make comments:
+
+        </div>
+
+
+
+
+        <div id="view2" class="col-sm-4" style="background-color:red">
+            <h2>Your Search History</h2>
+            Stack Overflow  is a question and answer (QA) site for professional and enthusiast programmers,
+            working together to build a library of detailed answers to, in principle, every question about programming.
+            The main goal for the site is all about getting answers.
+            It is not a discussion forum and there is no chitchat.
+        </div>
+        <div id="view3">
+            iushfuis
+        </div>
+
+        <div id="view4">
+            zdifuhds
+        </div>
+    </div>
+    <footer>
+        SOVA @ 2015 Web Service
+    </footer>
+
+   
+
+
+
+    <script src="Scripts/jquery-2.1.4.min.js"></script>
+    <script src="Scripts/knockout-3.4.0.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/BasicFunctionality.js"></script>
+    
+</body>
+
+
+</html>

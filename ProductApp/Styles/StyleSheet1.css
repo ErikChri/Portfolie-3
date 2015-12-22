@@ -1,0 +1,51 @@
+﻿
+
+body {}
+    header {
+background-color: black;
+color: white;
+text-align:center;
+}
+body{background-color:red}
+
+header>h1{font-family:'Times New Roman', Times, serif;
+font-size:40px;
+font-weight:bold;}
+
+	 
+footer {
+    background-color:black;
+    color:white;
+    clear:both;
+    text-align:center;   	 	 
+}
+#firstview{
+    display:block;
+    background-color:; 
+    
+}
+#firstview>h1{
+    font-family:'Times New Roman', Times, serif; 
+    font-size:32px;
+    font-weight:bold;
+    color:white;   
+}
+#firstview>title.hover{
+   background-color:;}
+
+#secondview>h1{font-family:'Times New Roman', Times, serif; 
+    font-size:32px;
+    font-weight:bold;
+    color:white;   }
+#thirdview>h1{font-family:'Times New Roman', Times, serif; 
+    font-size:32px;
+    font-weight:bold;
+    color:white;  }
+
+fourthview{
+    font-family:'Times New Roman', Times, serif; 
+    font-size:32px;
+    font-weight:bold;
+    color:white; 
+}
+.highlight:hover{color:yellow;}
