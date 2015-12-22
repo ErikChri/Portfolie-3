@@ -108,10 +108,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="html3.html" />
     <Content Include="index.html" />
-    <Content Include="index2.html" />
-    <Content Include="index1.html" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -131,7 +128,6 @@
     <Content Include="Scripts\knockout.viewmodel.2.0.3.js" />
     <Content Include="Scripts\knockout.viewmodel.2.0.3.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Styles\StyleSheet.css" />
     <Content Include="Styles\StyleSheet1.css" />
     <Content Include="Web.config" />
   </ItemGroup>
